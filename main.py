@@ -56,7 +56,7 @@ def callback_message(callback):
             bot.delete_message(callback.message.chat.id , callback.message.message_id)
             bot.delete_message(callback.message.chat.id , callback.message.message_id-1)
         case 'chinese':
-            from_lang1 = 'chi'
+            from_lang1 = 'chinese'
             bot.delete_message(callback.message.chat.id , callback.message.message_id)
             bot.delete_message(callback.message.chat.id , callback.message.message_id-1)
         case 'russian':
@@ -96,7 +96,7 @@ def callback_message(callback):
         case 'japanese2':
             bot.delete_message(callback.message.chat.id , callback.message.message_id) 
             bot.send_message(callback.message.chat.id , 'Ok, now you can type any text for translating')   
-            to_lang1 = 'jp'
+            to_lang1 = 'japanese'
         case 'turkish2':
             bot.delete_message(callback.message.chat.id , callback.message.message_id) 
             bot.send_message(callback.message.chat.id , 'Ok, now you can type any text for translating')   
@@ -104,7 +104,7 @@ def callback_message(callback):
         case 'chinese2':
             bot.delete_message(callback.message.chat.id , callback.message.message_id) 
             bot.send_message(callback.message.chat.id , 'Ok, now you can type any text for translating')   
-            to_lang1 = 'chi'
+            to_lang1 = 'chinese'
         case 'russian2':
             bot.delete_message(callback.message.chat.id , callback.message.message_id) 
             bot.send_message(callback.message.chat.id , 'Ok, now you can type any text for translating')   
@@ -115,6 +115,7 @@ def callback_message(callback):
 @bot.message_handler()
 def translating(message):
     translator = Translator(from_lang = from_lang1,to_lang= to_lang1)
+    global message_1 
     bot.send_message(message.chat.id, translator.translate(message.text))
 
 
